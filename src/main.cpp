@@ -9,7 +9,6 @@
 
 int main() {
   Blackjack game;
-  std::string temp;
   game.dealPlayer();
   game.dealPlayer();
   game.dealDealer();
@@ -18,5 +17,6 @@ int main() {
     std::cout << CLEARTERM;
     std::cout << game;
     std::cin.ignore();
+    game.dealPlayer();
   }
 }
