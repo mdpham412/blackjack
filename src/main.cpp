@@ -9,14 +9,14 @@
 
 int main() {
   Blackjack game;
-  game.dealPlayer();
-  game.dealPlayer();
-  game.dealDealer();
-  game.dealDealer();
+  game.deal(Blackjack::player1);
+  game.deal(Blackjack::player1);
+  game.deal(Blackjack::dealer);
+  game.deal(Blackjack::dealer);
   while (true) {
     std::cout << CLEARTERM;
     std::cout << game;
     std::cin.ignore();
-    game.dealPlayer();
+    game.deal(Blackjack::player1);
   }
 }
