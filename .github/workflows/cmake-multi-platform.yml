@@ -79,5 +79,5 @@ jobs:
       with:
         name: blackjack-${{ matrix.os }}
         path: |
-          ${{ steps.strings.outputs.build-output-dir }}/**/*.exe
-          ${{ steps.strings.outputs.build-output-dir }}/*   # Linux/macOS binaries
+          ${{ steps.strings.outputs.build-output-dir }}/**/Blackjack.exe
+          ${{ steps.strings.outputs.build-output-dir }}/**/Blackjack
