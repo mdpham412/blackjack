@@ -1,14 +1,22 @@
+#include <iomanip>
 #include <iostream>
+#include <string>
 #include <vector>
 
 #include "blackjack.hpp"
 
+#define CLEARTERM "\033[2J\033[1;1H"
+
 int main() {
   Blackjack game;
+  std::string temp;
   game.dealPlayer();
   game.dealPlayer();
-  for (auto& card : game.getPlayersHand()) {
-    std::cout << card << '\n';
+  game.dealDealer();
+  game.dealDealer();
+  while (true) {
+    std::cout << CLEARTERM;
+    std::cout << game;
+    std::cin.ignore();
   }
-  std::cout << game.getHandValue();
 }
