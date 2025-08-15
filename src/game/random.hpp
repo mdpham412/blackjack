@@ -1,3 +1,6 @@
+#ifndef RANDOM_HPP
+#define RANDOM_HPP
+
 #include <random>
 
 int getRandomCard(int start = 0, int end = 51) {
@@ -8,3 +11,5 @@ int getRandomCard(int start = 0, int end = 51) {
   std::uniform_int_distribution card{start, end};
   return card(mt);
 };
+
+#endif

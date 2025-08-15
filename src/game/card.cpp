@@ -3,22 +3,6 @@
 // Get the name of a card as an std::string
 std::string getName(const Card& card) {
   std::string name{};
-  switch (card.getSuit()) {
-    case Card::clubs:
-      name += "♧";
-      break;
-    case Card::diamonds:
-      name += "♢";
-      break;
-    case Card::hearts:
-      name += "♡";
-      break;
-    case Card::spades:
-      name += "♤";
-      break;
-    default:
-      return name;
-  }
   switch (card.getRank()) {
     case Card::ace:
       name += "A";
@@ -60,6 +44,22 @@ std::string getName(const Card& card) {
       name += "K";
       break;
     case Card::uninitializedRank:
+      return name;
+  }
+  switch (card.getSuit()) {
+    case Card::clubs:
+      name += " of Clubs";
+      break;
+    case Card::diamonds:
+      name += " of Diamonds";
+      break;
+    case Card::hearts:
+      name += " of Hearts";
+      break;
+    case Card::spades:
+      name += " of Spades";
+      break;
+    default:
       return name;
   }
   return name;
