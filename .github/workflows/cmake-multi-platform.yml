@@ -76,3 +76,4 @@ jobs:
         path: |
           ${{ steps.strings.outputs.build-output-dir }}/**/Blackjack.exe
           ${{ steps.strings.outputs.build-output-dir }}/**/Blackjack
+        compression-level: 0
