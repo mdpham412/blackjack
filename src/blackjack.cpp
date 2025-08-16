@@ -5,6 +5,7 @@ Blackjack::Blackjack() {
   m_deck.shuffle();
   for (int i = 0; i < size; i++) {
     m_hands.push_back({});
+    m_money.push_back(startingCash);
   }
   for (auto& player : m_hands) {
     player.clear();
@@ -92,8 +93,24 @@ std::ostream& operator<<(std::ostream& stream, Blackjack& game) {
     }
     stream << '\n';
   }
+
   stream << std::setw(10) << "Value: ";
-  stream << std::setw(width - 10) << game.handValue(Blackjack::player1)
-         << std::setw(width) << game.handValue(Blackjack::dealer) << '\n';
+  stream << std::setw(width - 10) << game.handValue(Blackjack::player1);
+  stream << std::setw(width) << game.handValue(Blackjack::dealer) << '\n';
+  stream << std::setw(10) << "Money: ";
+  stream << std::setw(width - 10) << game.money(Blackjack::player1);
+  stream << std::setw(width) << "" << '\n';
   return stream;
+}
+
+void Blackjack::newRound() {
+  m_deck.clear();
+  m_deck = Deck();
+  m_deck.shuffle();
+  for (int i = 0; i < size; i++) {
+    m_hands.push_back({});
+  }
+  for (auto& player : m_hands) {
+    player.clear();
+  }
 }
