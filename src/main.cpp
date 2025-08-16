@@ -19,7 +19,7 @@ int main() {
   // Game loop
   while (true) {
     if (game.money(Blackjack::player1) == 0) {
-      std::cout << "You ran out of money! :`(";
+      std::cout << "You ran out of money! :`(\n";
       break;
     }
 
@@ -78,4 +78,12 @@ int main() {
         continue;
     }
   }
+  // Require user input before quitting
+  std::cin.seekg(0, std::ios::end);
+  std::cin.clear();
+  std::cout << "Press enter to quit: ";
+  while (std::cin.get() != '\n') {
+    continue;
+  }
+  return 0;
 }
