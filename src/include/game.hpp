@@ -1,5 +1,10 @@
 #ifndef GAME_HPP
 #define GAME_HPP
+#include <iomanip>
+#include <iostream>
+#include <string>
+#include <vector>
+
 #include "blackjack.hpp"
 
 #define CLEARTERM "\033[2J\033[1;1H"
