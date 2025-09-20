@@ -11,7 +11,7 @@ class Game {
   int bet{};
 
  public:
-  Game(const int w = 40) : width{w / 2} {}
+  Game(const int w = 40) : width{w} { blackjack.width = width; }
   void loop();
   void end();
 

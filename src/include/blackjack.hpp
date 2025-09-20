@@ -18,6 +18,7 @@ class Blackjack {
   std::vector<int> m_money{};
 
  public:
+  int width{};
   Blackjack();
   void newRound();
   void deal(Players player);

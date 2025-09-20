@@ -74,33 +74,32 @@ int Blackjack::handValue(Players player) {
 }
 
 std::ostream& operator<<(std::ostream& stream, Blackjack& game) {
-  constexpr int width{40};
   int maxHandSize = std::max(game.m_hands[Blackjack::dealer].size(),
                              game.m_hands[Blackjack::player1].size());
 
-  stream << std::setw(width) << "Player's hand:";
-  stream << std::setw(width) << "Dealer's hand:\n";
+  stream << std::setw(game.width) << "Player's hand:";
+  stream << std::setw(game.width) << "Dealer's hand:\n";
   for (int i = 0; i < maxHandSize; i++) {
     if (i >= game.m_hands[Blackjack::player1].size()) {
-      stream << std::setw(width) << "";
-      stream << std::setw(width) << game.m_hands[Blackjack::dealer][i];
+      stream << std::setw(game.width) << "";
+      stream << std::setw(game.width) << game.m_hands[Blackjack::dealer][i];
     } else if (i >= game.m_hands[Blackjack::dealer].size()) {
-      stream << std::setw(width) << game.m_hands[Blackjack::player1][i];
-      stream << std::setw(width) << "";
+      stream << std::setw(game.width) << game.m_hands[Blackjack::player1][i];
+      stream << std::setw(game.width) << "";
     } else {
-      stream << std::setw(width) << game.m_hands[Blackjack::player1][i];
-      stream << std::setw(width) << game.m_hands[Blackjack::dealer][i];
+      stream << std::setw(game.width) << game.m_hands[Blackjack::player1][i];
+      stream << std::setw(game.width) << game.m_hands[Blackjack::dealer][i];
     }
     stream << '\n';
   }
 
   stream << std::setw(10) << "Value: ";
-  stream << std::setw(width - 10) << game.handValue(Blackjack::player1);
-  stream << std::setw(width) << game.handValue(Blackjack::dealer) << '\n';
+  stream << std::setw(game.width - 10) << game.handValue(Blackjack::player1);
+  stream << std::setw(game.width) << game.handValue(Blackjack::dealer) << '\n';
 
   stream << std::setw(10) << "Money: ";
-  stream << std::setw(width - 10) << game.money(Blackjack::player1);
-  stream << std::setw(width) << "" << '\n';
+  stream << std::setw(game.width - 10) << game.money(Blackjack::player1);
+  stream << std::setw(game.width) << "" << '\n';
 
   return stream;
 }
