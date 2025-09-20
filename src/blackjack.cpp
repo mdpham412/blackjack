@@ -75,12 +75,12 @@ int Blackjack::handValue(Players player) {
 
 std::ostream& operator<<(std::ostream& stream, Blackjack& game) {
   constexpr int width{40};
+  int maxHandSize = std::max(game.m_hands[Blackjack::dealer].size(),
+                             game.m_hands[Blackjack::player1].size());
 
   stream << std::setw(width) << "Player's hand:";
   stream << std::setw(width) << "Dealer's hand:\n";
-  for (int i = 0; i < std::max(game.m_hands[Blackjack::dealer].size(),
-                               game.m_hands[Blackjack::player1].size());
-       i++) {
+  for (int i = 0; i < maxHandSize; i++) {
     if (i >= game.m_hands[Blackjack::player1].size()) {
       stream << std::setw(width) << "";
       stream << std::setw(width) << game.m_hands[Blackjack::dealer][i];
@@ -97,9 +97,11 @@ std::ostream& operator<<(std::ostream& stream, Blackjack& game) {
   stream << std::setw(10) << "Value: ";
   stream << std::setw(width - 10) << game.handValue(Blackjack::player1);
   stream << std::setw(width) << game.handValue(Blackjack::dealer) << '\n';
+
   stream << std::setw(10) << "Money: ";
   stream << std::setw(width - 10) << game.money(Blackjack::player1);
   stream << std::setw(width) << "" << '\n';
+
   return stream;
 }
 
