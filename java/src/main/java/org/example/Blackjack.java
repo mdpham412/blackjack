@@ -119,8 +119,6 @@ public class Blackjack {
             }
             this.print();
             this.checkResult();
-            System.out.print("Press enter to continue");
-            scanner.nextLine();
             System.out.println();
         }
 
